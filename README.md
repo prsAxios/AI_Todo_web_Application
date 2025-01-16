@@ -73,7 +73,8 @@ Generate an array of 10 tasks for a productive day. Each task should include:
 ![cardMode_image](https://github.com/user-attachments/assets/4f8d6876-1f7a-44f4-acc8-d2383e4cfaaf)
 
 
-![cardMode_image](https://github.com/user-attachments/assets/58388111-32ae-4a1b-8f13-313f4c413846)
+![Dark_mode_2](https://github.com/user-attachments/assets/f710b0b3-9fe0-4b56-b77f-f3c901b4ed24)
+
 
 ![Light_mode_1](https://github.com/user-attachments/assets/d6175b57-f605-4be0-8e78-536c89aaf015)
 
