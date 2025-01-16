@@ -94,11 +94,7 @@ const SideNav = ({taskArray}) => {
             </ul>
           </div>
 
-          {/* {div 2} */}
-          <div className={`rounded-xl flex items-center m-4 justify-center h-[80px] shadow-2xl ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
-            <Plus className="mr-3" />
-            <p className="text-xl">Add list</p>
-          </div>
+        
 
           {/* {div 3} */}
           <div className={`m-4 grid-cols-1 rounded-xl shadow-2xl ${darkMode ? 'bg-gray-700' : 'bg-white'}`}>

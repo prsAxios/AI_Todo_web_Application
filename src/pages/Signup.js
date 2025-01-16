@@ -21,7 +21,7 @@ const SignupPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-black via-blue-500 to-black   flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-r from-blue-900 via-indigo-500 to-purple-900  flex items-center justify-center p-4">
       <div
         className="bg-white max-w-md w-full p-8 rounded-lg shadow-2xl transform transition duration-500 ease-in-out scale-90 hover:scale-100 animate-fadeIn"
         style={{
@@ -75,6 +75,15 @@ const SignupPage = () => {
             Sign Up
           </button>
         </form>
+        <p className="text-center text-sm mt-4 text-gray-600">
+          have an account?{' '}
+          <a
+            href="/login"
+            className="text-purple-500 hover:underline hover:text-purple-600 transition"
+          >
+            Log In here
+          </a>
+        </p>
       </div>
     </div>
   );

@@ -6,9 +6,7 @@ import moment from 'moment';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import { FaSpinner } from 'react-icons/fa';
 import SideNav from './SideBar';
-import { useTheme } from '../ThemeContext';  // Import the useTheme hook
-
-
+import { useTheme } from '../ThemeContext';  // the useTheme hook
 
 
 const DashBoardScreen = () => {
@@ -30,7 +28,7 @@ const DashBoardScreen = () => {
     const { darkMode } = useTheme();  // Access darkMode
 
 
-    const geminiApiKey = 'AIzaSyD_VeBHTGa0k61Bfwt0CE9da4yRTVypG18'
+    const geminiApiKey = 'AIzaSyD_VeBHTGa0k61Bfwt0CE9da4yRTVypG18';
 
     const handleScroll = () => {
         if (isOpen) {
@@ -217,12 +215,12 @@ const DashBoardScreen = () => {
         <hr className='h-[2px] bg-gray-300 dark:bg-gray-600' />
 
         {/* Add task div */}
-        <div className='grid bg-gradient-to-b from-green-50 to-green-100 dark:from-green-700 dark:to-green-900'>
+        <div className='grid bg-gradient-to-tr from-green-100 to-green-200 dark:from-green-100 dark:via-green-300 dark:to-green-800'>
 
-            <div className='w-full'>
+            <div className='w-full text-white'>
                 <input
                     type='text'
-                    className='border p-2 w-full mb-4 rounded-md dark:bg-gray-700 dark:text-white dark:border-gray-600'
+                    className='border p-2 w-full mb-4   dark:bg-gray-700 dark:text-white dark:border-gray-600'
                     placeholder='Add a Task'
                     value={taskText}
                     onChange={(e) => setTaskText(e.target.value)}
@@ -248,7 +246,7 @@ const DashBoardScreen = () => {
                 </div>
             </div>
 
-            <div className="flex items-center justify-between mt-4 px-4 py-3 bg-gray-100 dark:bg-gray-700 dark:text-white shadow-md rounded-lg">
+            <div className="flex items-center justify-between mt-4 px-4 py-3 bg-gray-100 dark:bg-gray-700 dark:text-white shadow-md ">
                 {/* Priority Dropdown */}
                 <ul className="flex items-center space-x-2">
                     <li>
@@ -390,75 +388,79 @@ const DashBoardScreen = () => {
 
         {/* Sidebar for Task Details */}
         {selectedTask && (
-            <div className='w-1/4 bg-gradient-to-b from-green-100 to-green-400 dark:from-green-700 dark:to-green-900 shadow-4xl p-5 fixed right-0 top-10 h-full'>
-                <h2 className='text-lg font-semibold text-white mb-4'>Task Details</h2>
+           
+ <div className='w-1/4 bg-gradient-to-b from-green-100 to-green-400 dark:from-green-700 dark:to-green-900 shadow-4xl p-5 fixed right-0 -top-5 h-full'>
+    <h2 className='text-lg font-semibold text-white mb-4 mt-12'>Task Details</h2>
 
-                <p className='mb-4 text-2xl font-bold text-white'>{selectedTask.text}</p>
+    <p className='mb-4 text-2xl font-bold text-white'>{selectedTask.text}</p>
 
-                <hr className='border-1 border-white  rounded-xl mb-2' />
+    <hr className='border-1 border-white rounded-xl mb-2' />
 
-                <label className='text-lg font-semibold text-white'>Time</label>
-                <p className='mb-5 text-white'>{selectedTask.time}</p>
+    <label className='text-lg font-semibold text-white'>Time</label>
+    <p className='mb-5 text-white'>{selectedTask.time}</p>
 
-                <hr className='border-1 border-white  rounded-xl mb-2' />
+    <hr className='border-1 border-white rounded-xl mb-2' />
 
-                <label className='text-lg font-semibold text-white'>Description</label>
-                <p className='mb-5 text-white'>{selectedTask.description}</p>
+    <label className='text-lg font-semibold text-white'>Description</label>
+    <p className='mb-5 text-white'>{selectedTask.description}</p>
 
-                <hr className='border-1 border-white  rounded-xl mb-2' />
+    <hr className='border-1 border-white rounded-xl mb-2' />
 
-                {/* Set Reminder */}
-                <div className='mb-4'>
-                    <label className='block text-sm font-semibold text-white'>Set Reminder</label>
-                    <input
-                        type='checkbox'
-                        checked={reminder}
-                        onChange={() => handleReminder(selectedTask.id)}
-                        className='form-checkbox h-5 w-5 text-green-500 dark:text-green-400'
-                    />
-                </div>
+    {/* Set Reminder */}
+    <div className='mb-4'>
+        <label className='block text-sm font-semibold text-white'>Set Reminder</label>
+        <input
+            type='checkbox'
+            checked={reminder}
+            onChange={() => handleReminder(selectedTask.id)}
+            className='form-checkbox h-5 w-5 text-green-500 dark:text-green-400'
+        />
+    </div>
 
-                <hr className='border-1 border-white  rounded-xl mb-2' />
+    <hr className='border-1 border-white rounded-xl mb-2' />
 
-                {/* Due Date */}
-                <div className='mb-4'>
-                    <label className='block text-sm font-semibold text-white'>Add Due Date</label>
-                    <Datetime
-                        value={dueDate}
-                        onChange={setDueDate}
-                        dateFormat="YYYY-MM-DD"
-                        timeFormat="HH:mm"
-                        inputProps={{ placeholder: 'Select Due Date & Time' }}
-                        className="p-2 border border-gray-300 dark:border-gray-600 rounded"
-                    />
-                </div>
+    {/* Due Date */}
+    <div className='mb-4'>
+        <label className='block text-sm font-semibold text-white'>Add Due Date</label>
+        <Datetime
+            value={dueDate}
+            onChange={setDueDate}
+            dateFormat="YYYY-MM-DD"
+            timeFormat="HH:mm"
+            inputProps={{ placeholder: 'Select Due Date & Time' }}
+            className="p-2 border border-gray-300 dark:border-gray-600 rounded"
+        />
+    </div>
 
-                <hr className='border-1 border-white  rounded-xl mb-2' />
+    <hr className='border-1 border-white rounded-xl mb-2' />
 
-                {/* Repeat Button */}
-                <div className='mb-4'>
-                    <label className='block text-sm font-semibold text-white'>
-                        <button onClick={() => handleRepeatTask(selectedTask.id)} className='border-4 border-white rounded-xl p-5 text-white'>Repeat</button>
-                    </label>
-                </div>
+    {/* Repeat Button */}
+    <div className='mb-4'>
+        <label className='block text-sm font-semibold text-white'>
+            <button onClick={() => handleRepeatTask(selectedTask.id)} className='border-4 border-white rounded-xl p-5 text-white'>
+                Repeat
+            </button>
+        </label>
+    </div>
 
-                <hr className='border-1 border-white  rounded-xl mb-2' />
+    <hr className='border-1 border-white rounded-xl mb-2' />
 
-                {/* Add Notes */}
-                <div className='mb-4'>
-                    <textarea placeholder='Add Notes' className='w-full p-4 border-green-500 rounded-md focus:outline-none focus:ring-blue-500 text-white bg-gray-800' rows={4}></textarea>
-                </div>
+    {/* Add Notes */}
+    <div className='mb-4'>
+        <textarea placeholder='Add Notes' className='w-full p-4 border-green-500 rounded-md focus:outline-none focus:ring-blue-500 text-white bg-gray-800' rows={4}></textarea>
+    </div>
 
-                {/* Action Buttons */}
-                <div className='absolute mt-[80px] left-0 right-0 p-4 flex justify-between items-center'>
-                    <button onClick={() => handleDeleteTask(selectedTask.id)} className='bg-red-500 text-white px-4 py-2 rounded-md'>
-                        Delete
-                    </button>
-                    <button onClick={() => setSelectedTask(null)} className='bg-gray-500 text-white px-4 py-2 rounded-md'>
-                        Close Sidebar
-                    </button>
-                </div>
-            </div>
+    {/* Action Buttons */}
+    <div className='absolute bottom-4 left-0 right-0 p-4 flex justify-between items-center'>
+        <button onClick={() => handleDeleteTask(selectedTask.id)} className='bg-red-500 text-white px-4 py-2 rounded-md'>
+            Delete
+        </button>
+        <button onClick={() => setSelectedTask(null)} className='bg-gray-500 text-white px-4 py-2 rounded-md'>
+            Close Sidebar
+        </button>
+    </div>
+</div>
+
         )}
 
 {OpenDesc && (

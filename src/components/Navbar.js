@@ -44,7 +44,7 @@ const Navbar = () => {
                     </a>
 
                     <button onClick={toggleDarkMode}>
-                        {darkMode ? <FaMoon className='mr-3'/> : <FaSun className='mr-3'/>}
+                        {darkMode ? <FaSun className='mr-3'/> : <FaMoon className='mr-3'/>}
                     </button>
 
                    
