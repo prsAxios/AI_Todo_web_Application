@@ -1,70 +1,93 @@
-# Getting Started with Create React App
+# AI Todo Web Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a smart task management application that integrates AI to help users generate and organize their daily tasks. It incorporates authentication and a user profile page for personalized experiences. The application uses **Google Gemini API** to generate structured and actionable task lists based on user inputs.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Task Creation**: Users can create and manage their daily tasks with a title, description, time slot, and priority level.
+- **Gemini API Integration**: The AI-powered task generation feature uses Google's **Gemini API** to help users plan their day by generating a list of tasks. Users can provide prompts to the AI, and it returns a JSON array of tasks.
+- **Authentication**: User authentication is implemented for secure access to the app. Users can sign up, log in, and access their personalized tasks and profile.
+- **User Profile**: Users can view and update their profile, which includes personal information and task details.
+- **Task Completion**: Tasks can be marked as completed, and users can view their completed and pending tasks separately.
+- **Task Priority**: Tasks are prioritized with levels (High, Medium, Low) to help users focus on what’s most important.
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Frontend**: React, Next.js, Tailwind CSS
+- **Backend**: (if any, or can mention "currently frontend-only")
+- **Database**: Local Storage (for task persistence)
+- **Gemini API**: Integrated for AI-powered task generation.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Setup and Installation
 
-### `npm test`
+### Prerequisites
+- Node.js (v14.x or higher)
+- NPM or Yarn
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Getting Started
+1. Clone the repository:
+   git clone https://github.com/yourusername/ai-todo-web-application.git
+   
+2. Navigate to the project directory:
+   cd ai-todo-web-application
+   
+3. Install the dependencies:
+   npm install
+   
+5. Create a `.env` file and add your **Gemini API key**:
+   REACT_APP_GEMINI_API_KEY=your_api_key_here
+   
+7. Start the application:
+   npm run dev
 
-### `npm run build`
+8. Visit `http://localhost:3000` in your browser.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Gemini API Integration
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This application utilizes the **Gemini API** from Google to generate task lists. Users can input prompts such as "Generate a task list for today," and the AI returns a structured array of tasks. Each task contains:
+- `id`: A unique identifier
+- `text`: The task name
+- `description`: A brief description of the task
+- `time`: The time slot allocated for the task
+- `completed`: A default `false` value
+- `priority`: The task's priority level (High, Medium, Low)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### How It Works:
+- The **handlePromptUpload** function sends the user’s prompt along with a default template to the Gemini API.
+- The API returns a structured JSON array of tasks.
+- The tasks are parsed and added to the state, allowing users to view them and mark them as completed or delete them.
 
-### `npm run eject`
+### Example Prompt:
+```plaintext
+Generate an array of 10 tasks for a productive day. Each task should include:
+- id: A unique identifier (integer starting from 1)
+- text: The task name
+- description: A short description of the task
+- time: The time slot for the task (e.g., "6:00 AM - 6:30 AM")
+- completed: A default boolean value set to false
+- priority: A priority level (High, Medium, or Low)
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Screenshots
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![cardMode_image](https://github.com/user-attachments/assets/4f8d6876-1f7a-44f4-acc8-d2383e4cfaaf)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![cardMode_image](https://github.com/user-attachments/assets/58388111-32ae-4a1b-8f13-313f4c413846)
 
-## Learn More
+![Light_mode_1](https://github.com/user-attachments/assets/d6175b57-f605-4be0-8e78-536c89aaf015)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Future Enhancements
 
-### Code Splitting
+- **Task Notifications**: Add reminder notifications for upcoming tasks.
+- **Due Date Functionality**: Users can set and track due dates for their tasks.
+- **Task Editing**: Enable users to edit existing tasks.
+- **Task Categories**: Organize tasks into different categories for better management.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## License
 
-### Analyzing the Bundle Size
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
