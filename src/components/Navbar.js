@@ -39,16 +39,17 @@ const Navbar = () => {
                 {/* {Right Part} */}
                 <div className='flex items-center justify-center text-xl'>
 
-                    <a href='/'>
+                    
                     <FaHome className='mr-3' />
-                    </a>
+              
 
                     <button onClick={toggleDarkMode}>
                         {darkMode ? <FaSun className='mr-3'/> : <FaMoon className='mr-3'/>}
                     </button>
 
-                   
+                    <a href='/profile'>
                     <FaUser className='mr-3'/>
+                    </a>
                     {user && (
                         <button onClick={handleLogout} className='bg-black rounded-full p-3 text-white'>
                             <FaPowerOff />
